@@ -1,5 +1,8 @@
 const main = document.querySelector("main")
 const cards = document.querySelectorAll(".card")
+let cardsFliped = 0
+let firstCard = undefined
+
 const makeCards = (rows, columns) => {
   main.innerHTML = ""
 
@@ -30,7 +33,33 @@ const flip = (card) => {
 
 cards.forEach((card) => {
   card.addEventListener("click", () => {
-    flip(card)
+    if (cardsFliped == 0) {
+      flip(card)
+      card.setAttribute("disabled", true)
+      cardsFliped += 1
+      firstCard = card
+    } else if (cardsFliped == 1) {
+      flip(card)
+      cardsFliped += 1
+      card.setAttribute("disabled", true)
+    }
+
+    if (cardsFliped == 2) {
+      cardsFliped = 0
+      if (
+        firstCard.children[0].style.backgroundColor !=
+        card.children[0].style.backgroundColor
+      ) {
+        flip(card)
+        flip(firstCard)
+        card.setAttribute("disabled", false)
+        card.setAttribute("disabled", false)
+      } else {
+        card.setAttribute("disabled", true)
+        firstCard.setAttribute("disabled", true)
+      }
+    }
+
     //console.log(this.children[0])
     //card.style.transform = "rotateY(180deg)"
   })
