@@ -1,0 +1,31 @@
+main {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: auto;
+}
+
+.card {
+  background-color: blueviolet;
+  width: 33.33%;
+  height: 33.33%;
+  margin: 5px;
+
+  padding: auto;
+  border: #000000;
+  border-radius: 10%;
+}
+
+.flip-card-inner {
+  width: 40vh;
+  height: 40vh;
+}
+
+.flip-card-back {
+  background-color: dodgerblue;
+  transform: rotateX(180deg);
+}
+
+.flip-card-front {
+  background-color: #5e5b5b;
+}
