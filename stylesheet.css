@@ -12,8 +12,6 @@ main {
   margin: 5px;
 
   padding: auto;
-  border: #000000;
-  border-radius: 10%;
 }
 
 .flip-card-inner {
@@ -21,11 +19,23 @@ main {
   height: 40vh;
 }
 
-.flip-card-back {
+.back {
+  background-size: cover;
   background-color: dodgerblue;
-  transform: rotateX(180deg);
+  width: 40vh;
+  height: 40vh;
 }
 
-.flip-card-front {
+.front {
+  background-size: cover;
   background-color: #5e5b5b;
+  width: 40vh;
+  height: 40vh;
+}
+
+.back,
+.front,
+.card {
+  border: #000000;
+  border-radius: 20%;
 }

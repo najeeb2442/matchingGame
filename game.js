@@ -1,5 +1,5 @@
 const main = document.querySelector("main")
-const card = document.querySelector(".flip-card-inner")
+const cards = document.querySelectorAll(".card")
 const makeCards = (rows, columns) => {
   main.innerHTML = ""
 
@@ -20,6 +20,18 @@ const makeCards = (rows, columns) => {
   })
 }
 
-card.addEventListener("click", () => {
-  card.style.transform = "rotateX(180deg)"
+const flip = (card) => {
+  if (card.children[0].className == "front") {
+    card.children[0].className = "back"
+  } else {
+    card.children[0].className = "front"
+  }
+}
+
+cards.forEach((card) => {
+  card.addEventListener("click", () => {
+    flip(card)
+    //console.log(this.children[0])
+    //card.style.transform = "rotateY(180deg)"
+  })
 })
