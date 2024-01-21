@@ -21,6 +21,7 @@ Let's get started!
 
 choose a card then try matching this card color with another one  
 CAN YOU DO IT ?
+
 ![i_think_not](https://i.imgur.com/Odqpt7c.gif)
 
 anyway, at the bottom there are 2 fields for you to enter the rows and columns, respectively.
