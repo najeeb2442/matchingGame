@@ -2,7 +2,19 @@ const main = document.querySelector("main")
 const restart = document.querySelector(".restart")
 const numRows = document.querySelector(".rows")
 const numColumns = document.querySelector(".columns")
+const message = document.querySelector(".message")
+
+const wins = document.querySelector(".wins")
+//const loses = document.querySelector(".loses")
+const moves = document.querySelector(".moves")
+const mistakes = document.querySelector(".mistakes")
 //const cards = document.querySelectorAll(".card")
+let cWins = 0
+//let cLoses = 0
+let cMoves = 0
+let cMistakes = 0
+let numOfCells = 4
+
 let cardsFliped = 0
 let firstCard = undefined
 const colors = []
@@ -14,6 +26,7 @@ const randomNumber = (num) => {
   return parseInt(Math.random() * 1000000) % num
 }
 
+// making event listener to each card
 makeEventListener = () => {
   let cards = document.querySelectorAll(".card")
   cards.forEach((card) => {
@@ -44,18 +57,25 @@ makeEventListener = () => {
 
           // card.toggleAttribute("disabled")
         } else {
+          numOfCells -= 2
           card.setAttribute("disabled", true)
           firstCard.setAttribute("disabled", true)
         }
+      }
+      if (numOfCells == 0) {
+        message.innerText = "you have won WOOHOO!"
+        cWins += 1
+        wins.innerText = `wins: ${cWins}`
       }
     })
   })
 }
 
 const makeCards = (rows, columns) => {
+  message.innerText = ""
   main.innerHTML = ""
   let cells = rows * columns
-
+  numOfCells = cells
   //sizing
   hSize = "calc(100% /" + rows + ")"
   wSize = "calc(100% /" + columns + ")"
@@ -114,6 +134,4 @@ numColumns.addEventListener("change", () => {
   makeCards(numRows.value, numColumns.value)
 })
 ////////////// make cards
-makeCards(9, 9)
-
-// making event listener to each card
+makeCards(2, 2)
