@@ -21,11 +21,11 @@ Let's get started!
 
 choose a card then try matching this card color with another one  
 CAN YOU DO IT ?
-![i think not](https://imgur.com/gallery/ZrqFQzU)
+![i think not](https://i.imgur.com/ZrqFQzU.mp4)
 
 anyway, at the bottom there are 2 fields for you to enter the rows and columns, respectively.
 and be careful because they change immediately!!.
-![impossible](https://giphy.com/gifs/theoffice-the-office-tv-customer-survey-atfHlwAhizfxdtdw60)
+![impossible](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGZ0NmlmbHF4Zzh4ZHV2aGM1b2Rta2J4bWF3ejQyMDBod2szMzN4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/atfHlwAhizfxdtdw60/giphy.gif)
 oh and a restart button.
 
 now you are ready to start!
@@ -47,7 +47,7 @@ be happy and have fun !
 
 oh my bad i thought it was screenshots of myself...
 
-### **_Screenshots_**
+### **_The Real Screenshots_**
 
 ![1](/p1.PNG)
 
