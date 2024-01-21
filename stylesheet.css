@@ -41,3 +41,13 @@ main {
 .card {
   border-radius: 20%;
 }
+
+footer,
+header {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}

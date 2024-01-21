@@ -1,4 +1,7 @@
 const main = document.querySelector("main")
+const restart = document.querySelector(".restart")
+const numRows = document.querySelector(".rows")
+const numColumns = document.querySelector(".columns")
 //const cards = document.querySelectorAll(".card")
 let cardsFliped = 0
 let firstCard = undefined
@@ -9,6 +12,44 @@ const randomColor = () => {
 }
 const randomNumber = (num) => {
   return parseInt(Math.random() * 1000000) % num
+}
+
+makeEventListener = () => {
+  let cards = document.querySelectorAll(".card")
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      if (cardsFliped == 0) {
+        flip(card)
+        card.setAttribute("disabled", true)
+        cardsFliped += 1
+        firstCard = card
+      } else if (cardsFliped == 1) {
+        flip(card)
+        cardsFliped += 1
+        card.setAttribute("disabled", true)
+      }
+
+      if (cardsFliped == 2) {
+        cardsFliped = 0
+        if (
+          firstCard.children[0].style.backgroundColor !=
+          card.children[0].style.backgroundColor
+        ) {
+          setTimeout(() => {
+            flip(card)
+            flip(firstCard)
+            card.removeAttribute("disabled")
+            firstCard.removeAttribute("disabled")
+          }, 500)
+
+          // card.toggleAttribute("disabled")
+        } else {
+          card.setAttribute("disabled", true)
+          firstCard.setAttribute("disabled", true)
+        }
+      }
+    })
+  })
 }
 
 const makeCards = (rows, columns) => {
@@ -44,22 +85,7 @@ const makeCards = (rows, columns) => {
 
     main.append(button)
   }
-
-  // random stuff
-  //const results = response.data.results
-  // main.innerHTML = ""
-  // results.forEach((movie) => {
-  //   const item = document.createElement("div")
-  //   item.style.backgroundImage = `url(${IMAGE_BASE_PATH + movie.backdrop_path})`
-  //   item.classList.add("item")
-
-  //   //backdrop_path
-  //   item.innerHTML = `<img src=${IMAGE_BASE_PATH + movie.poster_path}>
-  //   <h1>${movie.original_title} (${movie.release_date.substring(0, 4)})</h1>
-  //   <p>${movie.overview}</p>
-  //   `
-  //   main.append(item)
-  // })
+  makeEventListener()
 }
 
 const flip = (card) => {
@@ -67,7 +93,6 @@ const flip = (card) => {
     card.children[0].className = "back"
     card.children[0].style.backgroundColor =
       card.children[0].getAttribute("value")
-    console.log(card.children[0])
   } else {
     card.children[0].className = "front"
     card.children[0].style.backgroundColor = ""
@@ -78,48 +103,17 @@ async function doThis(fn) {
 }
 
 //starting the game
+//making event listener to restart
+restart.addEventListener("click", () => {
+  makeCards(numRows.value, numColumns.value)
+})
+numRows.addEventListener("change", () => {
+  makeCards(numRows.value, numColumns.value)
+})
+numColumns.addEventListener("change", () => {
+  makeCards(numRows.value, numColumns.value)
+})
 ////////////// make cards
 makeCards(9, 9)
 
-// make event listener to each card
-let cards = document.querySelectorAll(".card")
-cards.forEach((card) => {
-  card.addEventListener("click", () => {
-    if (cardsFliped == 0) {
-      console.log(cardsFliped)
-      flip(card)
-      card.setAttribute("disabled", true)
-      cardsFliped += 1
-      firstCard = card
-    } else if (cardsFliped == 1) {
-      flip(card)
-      cardsFliped += 1
-      card.setAttribute("disabled", true)
-    }
-
-    if (cardsFliped == 2) {
-      cardsFliped = 0
-      if (
-        firstCard.children[0].style.backgroundColor !=
-        card.children[0].style.backgroundColor
-      ) {
-        setTimeout(() => {
-          flip(card)
-          flip(firstCard)
-          card.removeAttribute("disabled")
-          firstCard.removeAttribute("disabled")
-        }, 500)
-
-        // card.toggleAttribute("disabled")
-      } else {
-        //console.log()
-        card.setAttribute("disabled", true)
-        firstCard.setAttribute("disabled", true)
-        console.log(card)
-      }
-    }
-
-    //console.log(this.children[0])
-    //card.style.transform = "rotateY(180deg)"
-  })
-})
+// making event listener to each card
