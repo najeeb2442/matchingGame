@@ -12,9 +12,15 @@ const randomNumber = (num) => {
 }
 
 const makeCards = (rows, columns) => {
-  // not finished
   main.innerHTML = ""
   let cells = rows * columns
+
+  //sizing
+  hSize = "calc(100% /" + rows + ")"
+  wSize = "calc(100% /" + columns + ")"
+
+  hS = "calc(100vh /" + rows + ")"
+  wS = "calc(100vw /" + columns + ")"
 
   for (let index = 0; index < cells / 2; index++) {
     const color = randomColor()
@@ -31,6 +37,11 @@ const makeCards = (rows, columns) => {
     //button.style.backgroundColor = colors[num]
     colors.splice(num, 1)
     cells--
+
+    // adjusting the size of the cards
+    button.setAttribute("style", "width: " + wSize + "; height: " + hSize)
+    button.children[0].setAttribute("style", "width: " + wS + "; height: " + hS)
+
     main.append(button)
   }
 
@@ -62,9 +73,13 @@ const flip = (card) => {
     card.children[0].style.backgroundColor = ""
   }
 }
+async function doThis(fn) {
+  await setTimeout(fn, 500)
+}
 
+//starting the game
 ////////////// make cards
-makeCards(4, 6)
+makeCards(9, 9)
 
 // make event listener to each card
 let cards = document.querySelectorAll(".card")

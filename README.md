@@ -44,6 +44,6 @@ Let's get started!
 
 #### images : [Google](https://www.google.com/) | [Adobe](https://stock.adobe.com/bh/search) | [Unsplash](https://unsplash.com/)
 
-#### game design : [Memozor](https://www.memozor.com/memory-games/for-adults/black-and-white-2) | [draw.io](https://app.diagrams.net/) | [w3school](https://www.w3schools.com/howto/howto_css_flip_card.asp) | [stackOverFlow](https://stackoverflow.com/questions/11238508/how-to-get-value-of-a-div-using-javascript)
+#### game design : [Memozor](https://www.memozor.com/memory-games/for-adults/black-and-white-2) | [draw.io](https://app.diagrams.net/) | [w3school](https://www.w3schools.com/howto/howto_css_flip_card.asp) | [stackOverFlow](https://stackoverflow.com/questions/11238508/how-to-get-value-of-a-div-using-javascript) | [dynamic sizing](https://stackoverflow.com/questions/50495835/fit-boxes-dynamically-in-a-container-with-flexbox)
 
 ####
