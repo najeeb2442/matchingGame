@@ -31,6 +31,8 @@ makeEventListener = () => {
   let cards = document.querySelectorAll(".card")
   cards.forEach((card) => {
     card.addEventListener("click", () => {
+      cMoves += 1
+      moves.innerText = `moves: ${cMoves}`
       if (cardsFliped == 0) {
         flip(card)
         card.setAttribute("disabled", true)
@@ -48,6 +50,8 @@ makeEventListener = () => {
           firstCard.children[0].style.backgroundColor !=
           card.children[0].style.backgroundColor
         ) {
+          cMistakes += 1
+          mistakes.innerText = `mistakes: ${cMistakes}`
           setTimeout(() => {
             flip(card)
             flip(firstCard)
@@ -74,6 +78,10 @@ makeEventListener = () => {
 const makeCards = (rows, columns) => {
   message.innerText = ""
   main.innerHTML = ""
+  cMoves = 0
+  moves.innerText = `moves: ${cMoves}`
+  cMistakes = 0
+  mistakes.innerText = `mistakes: ${cMistakes}`
   let cells = rows * columns
   numOfCells = cells
   //sizing
