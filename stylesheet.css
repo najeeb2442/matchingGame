@@ -1,13 +1,15 @@
 body {
   display: flex;
-  font-family: "Rubik Burned", system-ui;
-  background-color: rgb(29, 28, 28);
+  flex-direction: column;
+  font-family: "Grape Nuts", cursive;
+  background-color: #d7fdf0;
 }
 
 main {
   display: flex;
   flex-wrap: wrap;
-  max-width: 500px;
+  max-width: 1000px;
+
   justify-content: center;
   align-items: center;
   margin: auto;
@@ -16,7 +18,7 @@ main {
 
 .card {
   display: flex;
-  /*background-color: blueviolet;*/
+  /*backgroundy-color: blueviolet;*/
 
   justify-content: center;
 }
@@ -38,7 +40,10 @@ main {
 .back,
 .front,
 .card {
+  border: 2px solid;
   border-radius: 20%;
+  border-color: #b2ffd6;
+  box-shadow: 10px 10px 8px #b4d6d3;
 }
 
 footer,
@@ -46,9 +51,15 @@ header {
   display: flex;
   flex-direction: column;
   margin: auto;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+
   gap: 5px;
+}
+header > div {
+  display: flex;
+  flex-direction: row;
+  gap: 3vh;
 }
 
 .body {
@@ -59,6 +70,13 @@ header {
 }
 
 h1 {
-  color: #d10808;
-  font: bolder;
+  color: #aa78a6;
+}
+.start {
+  height: 5vh;
+  width: 5vw;
+}
+
+footer {
+  margin-top: 5vh;
 }

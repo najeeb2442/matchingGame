@@ -142,4 +142,4 @@ numColumns.addEventListener("change", () => {
   makeCards(numRows.value, numColumns.value)
 })
 ////////////// make cards
-makeCards(2, 2)
+makeCards(3, 4)
