@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Grape Nuts", cursive;
+  color: #aa78a6;
   background-color: #d7fdf0;
 }
 
@@ -69,14 +70,39 @@ header > div {
   align-items: center;
 }
 
-h1 {
-  color: #aa78a6;
-}
-.start {
-  height: 5vh;
-  width: 5vw;
+.start,
+.restart {
+  height: 7vh;
+  width: 8vw;
 }
 
 footer {
   margin-top: 5vh;
+}
+
+.rows,
+.columns,
+.restart,
+.start {
+  font-family: "Grape Nuts", cursive;
+  font-size: 3vh;
+  font-weight: bolder;
+  color: #aa78a6;
+}
+.rows,
+.columns {
+  border: 5px solid #b2ffd6;
+  text-align: center;
+  border-radius: 50px;
+}
+
+label {
+  font-size: 3vh;
+  font-weight: bolder;
+}
+span {
+  display: flex;
+  width: 20vw;
+  justify-content: space-between;
+  align-items: center;
 }
