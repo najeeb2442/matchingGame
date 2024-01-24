@@ -70,12 +70,6 @@ header > div {
   align-items: center;
 }
 
-.start,
-.restart {
-  height: 7vh;
-  width: 8vw;
-}
-
 footer {
   margin-top: 5vh;
 }
@@ -88,6 +82,17 @@ footer {
   font-size: 3vh;
   font-weight: bolder;
   color: #aa78a6;
+}
+
+.start,
+.restart {
+  height: 10vh;
+  width: 10vw;
+  /* border: hidden; */
+  border: 3px outset;
+  border-radius: 20px;
+  border-color: #b4d6d3;
+  font-size: 4vh;
 }
 .rows,
 .columns {
@@ -105,4 +110,7 @@ span {
   width: 20vw;
   justify-content: space-between;
   align-items: center;
+}
+.welcome {
+  font-size: 10vh;
 }
