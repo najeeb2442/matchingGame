@@ -9,7 +9,7 @@ body {
 main {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1000px;
+  max-width: 500px;
 
   justify-content: center;
   align-items: center;

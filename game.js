@@ -83,7 +83,7 @@ const makeCards = (rows, columns) => {
   //sizing
   hSize = "calc(100% /" + rows + ")"
   wSize = "calc(100% /" + columns + ")"
-  hS = "calc(100vh /" + rows + ")"
+  hS = "calc(50vh /" + rows + ")"
   wS = "calc(100vw /" + columns + ")"
   for (let index = 0; index < cells / 2; index++) {
     const color = randomColor()
