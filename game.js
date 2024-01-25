@@ -13,7 +13,7 @@ let cMistakes = 0
 let numOfCells = 4
 let cardsFliped = 0
 let firstCard = undefined
-const colors = []
+let colors = []
 
 const randomColor = () => {
   return "#" + parseInt(Math.random() * 1000000)
@@ -80,7 +80,8 @@ const makeCards = (rows, columns) => {
   mistakes.innerText = `mistakes: ${cMistakes}`
   let cells = rows * columns
   numOfCells = cells
-  //sizing
+  colors = []
+  // sizing
   hSize = "calc(100% /" + rows + ")"
   wSize = "calc(100% /" + columns + ")"
   hS = "calc(50vh /" + rows + ")"
