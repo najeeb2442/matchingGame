@@ -22,6 +22,15 @@ const randomNumber = (num) => {
   return parseInt(Math.random() * 1000000) % num
 }
 
+const match = (secondC, fc) => {
+  setTimeout(() => {
+    flip(secondC) //flip second card
+    flip(fc) //flip first card
+    fc.removeAttribute("disabled")
+    secondC.removeAttribute("disabled")
+  }, 500)
+}
+
 // making event listener to each card
 makeEventListener = () => {
   let cards = document.querySelectorAll(".card")
@@ -48,12 +57,7 @@ makeEventListener = () => {
           moves.innerText = `moves: ${cMoves}`
           cMistakes += 1
           mistakes.innerText = `mistakes: ${cMistakes}`
-          setTimeout(() => {
-            flip(card)
-            flip(firstCard)
-            card.removeAttribute("disabled")
-            firstCard.removeAttribute("disabled")
-          }, 500)
+          match(card, firstCard)
         } else {
           cMoves += 1
           moves.innerText = `moves: ${cMoves}`
@@ -81,6 +85,7 @@ const makeCards = (rows, columns) => {
   let cells = rows * columns
   numOfCells = cells
   colors = []
+  cardsFliped = 0
   // sizing
   hSize = "calc(100% /" + rows + ")"
   wSize = "calc(100% /" + columns + ")"
