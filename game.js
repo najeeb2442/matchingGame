@@ -15,8 +15,23 @@ let cardsFliped = 0
 let firstCard = undefined
 let colors = []
 
-const randomColor = () => {
-  return "#" + parseInt(Math.random() * 1000000)
+const randomColor = async (num) => {
+  //return "#" + parseInt(Math.random() * 1000000)
+
+  const response = await axios.get(
+    `https://x-colors.yurace.pro/api/random?number=${num}`
+  )
+  const colorArray = response.data
+  const newarr = []
+  // const color = randomColor()
+  // colorArray.forEach((c) => {
+  //   newarr.push(c)
+  //   newarr.push(c)
+  // })
+
+  colorArray.push(...colorArray)
+  //console.log(colorArray)
+  return colorArray
 }
 const randomNumber = (num) => {
   return parseInt(Math.random() * 1000000) % num
@@ -75,40 +90,48 @@ makeEventListener = () => {
   })
 }
 
-const makeCards = (rows, columns) => {
-  message.innerText = ""
-  main.innerHTML = ""
-  cMoves = 0
-  moves.innerText = `moves: ${cMoves}`
-  cMistakes = 0
-  mistakes.innerText = `mistakes: ${cMistakes}`
-  let cells = rows * columns
-  numOfCells = cells
-  colors = []
-  cardsFliped = 0
-  // sizing
-  hSize = "calc(100% /" + rows + ")"
-  wSize = "calc(100% /" + columns + ")"
-  hS = "calc(50vh /" + rows + ")"
-  wS = "calc(100vw /" + columns + ")"
-  for (let index = 0; index < cells / 2; index++) {
-    const color = randomColor()
-    colors.push(color)
-    colors.push(color)
+const makeCards = async (rows, columns) => {
+  if ((rows * columns) % 2 == 0 && rows * columns > 4) {
+    message.innerText = ""
+    main.innerHTML = ""
+    cMoves = 0
+    moves.innerText = `moves: ${cMoves}`
+    cMistakes = 0
+    mistakes.innerText = `mistakes: ${cMistakes}`
+    let cells = rows * columns
+    numOfCells = cells
+    colors = []
+    cardsFliped = 0
+    // sizing
+    hSize = "calc(100% /" + rows + ")"
+    wSize = "calc(100% /" + columns + ")"
+    hS = "calc(50vh /" + rows + ")"
+    wS = "calc(100vw /" + columns + ")"
+    // for (let index = 0; index < cells / 2; index++) {
+    //   const color = randomColor()
+    //   colors.push(color)
+    //   colors.push(color)
+    // }
+    colors = await randomColor(cells / 2)
+
+    console.log(colors)
+    for (let index = 0; index < cells; ) {
+      const button = document.createElement("button")
+      let num = randomNumber(cells)
+      button.classList.add("card")
+      button.innerHTML = `<div value="${colors[num].rgb}" class="front"></div>  `
+      colors.splice(num, 1)
+      cells--
+      // adjusting the size of the cards
+      button.setAttribute("style", "width: " + wSize + "; height: " + hSize)
+      button.children[0].setAttribute(
+        "style",
+        "width: " + wS + "; height: " + hS
+      )
+      main.append(button)
+    }
+    makeEventListener()
   }
-  for (let index = 0; index < cells; ) {
-    const button = document.createElement("button")
-    let num = randomNumber(cells)
-    button.classList.add("card")
-    button.innerHTML = `<div value="${colors[num]}" class="front"></div>  `
-    colors.splice(num, 1)
-    cells--
-    // adjusting the size of the cards
-    button.setAttribute("style", "width: " + wSize + "; height: " + hSize)
-    button.children[0].setAttribute("style", "width: " + wS + "; height: " + hS)
-    main.append(button)
-  }
-  makeEventListener()
 }
 
 const flip = (card) => {
